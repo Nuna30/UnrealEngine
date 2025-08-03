@@ -4,3 +4,6 @@
 
 ## 바라보는 방향으로 공 던지기 구현
 ![shootingBall](images/shootingBall.gif)
+
+## 창고 구현
+![warehousePreview](images/warehousePreview.gif)
