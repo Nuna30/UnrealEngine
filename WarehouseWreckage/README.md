@@ -9,11 +9,13 @@
 ![warehousePreview](images/warehousePreview.gif)
 
 ## 충돌 메쉬 사용
-- 10 DOP-Z simplified collision를 사용하여 게임 시작 시 메쉬들이 서로 팅겨져 나가는 현상 개선
-- 적용 전
+- 게임 시작 시 메쉬들이 서로 팅겨져 나가는 현상 개선
+- 10 DOP-Z simplified collision 사용
   
-![BeforeSimplifedCollsion](images/UnsimplifiedBarrelMeshes.gif)\
+**적용 전**
+  
+![BeforeSimplifedCollsion](images/UnsimplifiedBarrelMeshes.gif)
 
-- 적용 후
+**적용 후**
   
 ![AfterSimplifiedCollision](images/SimplifiedBarrelMeshes.gif)
