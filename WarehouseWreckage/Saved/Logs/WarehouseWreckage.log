@@ -3699,3 +3699,46 @@ LogConfig: Set CVar [[r.VRS.ContrastAdaptiveShading:1]]
 [2025.08.03-07.31.39:227][762]LogAudioMixer: Display: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=30, StreamState=2
 [2025.08.03-07.31.39:352][762]LogUObjectHash: Compacting FUObjectHashTables data took   1.22ms
 [2025.08.03-07.31.39:376][763]LogPlayLevel: Display: Destroying online subsystem :Context_41
+[2025.08.03-07.37.19:326][ 62]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 2099.490723
+[2025.08.03-07.37.20:326][ 65]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.08.03-07.37.20:326][ 66]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 2100.157959, Update Interval: 349.229401
+[2025.08.03-07.40.38:067][276]LogDebuggerCommands: Repeating last play command: Selected Viewport
+[2025.08.03-07.40.38:076][276]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2025.08.03-07.40.38:078][276]LogPlayLevel: Display: Creating online subsystem for client :Context_42
+[2025.08.03-07.40.38:080][276]LogOnline: OSS: Created online subsystem instance for: :Context_42
+[2025.08.03-07.40.38:089][277]LogPlayLevel: Creating play world package: /Game/StarterContent/Maps/UEDPIE_0_Main
+[2025.08.03-07.40.38:112][277]LogPlayLevel: PIE: StaticDuplicateObject took: (0.022338s)
+[2025.08.03-07.40.38:112][277]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/StarterContent/Maps/Main.Main to /Game/StarterContent/Maps/UEDPIE_0_Main.Main (0.022435s)
+[2025.08.03-07.40.38:147][277]LogUObjectHash: Compacting FUObjectHashTables data took   1.82ms
+[2025.08.03-07.40.38:148][277]LogChaosDD: Creating Chaos Debug Draw Scene for world Main
+[2025.08.03-07.40.38:152][277]LogPlayLevel: PIE: World Init took: (0.002527s)
+[2025.08.03-07.40.38:153][277]LogAudio: Display: Creating Audio Device:                 Id: 31, Scope: Unique, Realtime: True
+[2025.08.03-07.40.38:153][277]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2025.08.03-07.40.38:153][277]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2025.08.03-07.40.38:153][277]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2025.08.03-07.40.38:153][277]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2025.08.03-07.40.38:153][277]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2025.08.03-07.40.38:153][277]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2025.08.03-07.40.38:153][277]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2025.08.03-07.40.38:153][277]LogAudio: Display: AudioDevice MaxSources: 32
+[2025.08.03-07.40.38:153][277]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2025.08.03-07.40.38:153][277]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2025.08.03-07.40.38:153][277]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2025.08.03-07.40.38:155][277]LogAudioMixer: Display: Initializing audio mixer using platform API: 'XAudio2'
+[2025.08.03-07.40.38:372][277]LogAudioMixer: Display: Using Audio Hardware Device Speaker(2- Realtek(R) Audio)
+[2025.08.03-07.40.38:373][277]LogAudioMixer: Display: Initializing Sound Submixes...
+[2025.08.03-07.40.38:373][277]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2025.08.03-07.40.38:373][277]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2025.08.03-07.40.38:374][277]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called. InstanceID=31
+[2025.08.03-07.40.38:374][277]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=31
+[2025.08.03-07.40.38:376][277]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=31
+[2025.08.03-07.40.38:376][277]LogInit: FAudioDevice initialized with ID 31.
+[2025.08.03-07.40.38:376][277]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time. InstanceID=31
+[2025.08.03-07.40.38:376][277]LogAudio: Display: Audio Device (ID: 31) registered with world 'Main'.
+[2025.08.03-07.40.38:376][277]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 31
+[2025.08.03-07.40.38:381][277]LogLoad: Game class is 'GameModeBase'
+[2025.08.03-07.40.38:388][277]LogWorld: Bringing World /Game/StarterContent/Maps/UEDPIE_0_Main.Main up for play (max tick rate 60) at 2025.08.03-16.40.38
+[2025.08.03-07.40.38:389][277]LogWorld: Bringing up level for play took: 0.007124
+[2025.08.03-07.40.38:391][277]PIE: Server logged in
+[2025.08.03-07.40.38:394][277]PIE: Play in editor total start time 0.317 seconds.
+[2025.08.03-07.40.38:473][280]LogRenderer: Warning: [VSM] Non-Nanite Marking Job Queue overflow. Performance may be affected. This occurs when many non-nanite meshes cover a large area of the shadow map.
