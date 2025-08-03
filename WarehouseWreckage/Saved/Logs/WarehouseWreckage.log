@@ -4489,3 +4489,107 @@ Script Stack (0 frames) :
 [2025.08.03-02.12.27:586][633]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
 [2025.08.03-02.12.27:586][633]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
 [2025.08.03-02.12.27:586][633]AssetCheck: /Game/StarterContent/Maps/Main Validating asset
+[2025.08.03-02.14.46:342][128]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 82269.640625
+[2025.08.03-02.14.47:343][131]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.08.03-02.14.47:343][131]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 82270.312500, Update Interval: 303.266693
+[2025.08.03-02.15.51:016][354]LogDebuggerCommands: Repeating last play command: Selected Viewport
+[2025.08.03-02.15.51:025][354]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2025.08.03-02.15.51:025][354]LogPlayLevel: Display: Creating online subsystem for client :Context_40
+[2025.08.03-02.15.51:029][354]LogOnline: OSS: Created online subsystem instance for: :Context_40
+[2025.08.03-02.15.51:034][355]LogPlayLevel: Creating play world package: /Game/StarterContent/Maps/UEDPIE_0_Main
+[2025.08.03-02.15.51:053][355]LogPlayLevel: PIE: StaticDuplicateObject took: (0.018471s)
+[2025.08.03-02.15.51:053][355]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/StarterContent/Maps/Main.Main to /Game/StarterContent/Maps/UEDPIE_0_Main.Main (0.018549s)
+[2025.08.03-02.15.51:080][355]LogUObjectHash: Compacting FUObjectHashTables data took   1.39ms
+[2025.08.03-02.15.51:081][355]LogChaosDD: Creating Chaos Debug Draw Scene for world Main
+[2025.08.03-02.15.51:083][355]LogPlayLevel: PIE: World Init took: (0.001981s)
+[2025.08.03-02.15.51:084][355]LogAudio: Display: Creating Audio Device:                 Id: 33, Scope: Unique, Realtime: True
+[2025.08.03-02.15.51:084][355]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2025.08.03-02.15.51:084][355]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2025.08.03-02.15.51:084][355]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2025.08.03-02.15.51:084][355]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2025.08.03-02.15.51:084][355]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2025.08.03-02.15.51:084][355]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2025.08.03-02.15.51:084][355]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2025.08.03-02.15.51:084][355]LogAudio: Display: AudioDevice MaxSources: 32
+[2025.08.03-02.15.51:084][355]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2025.08.03-02.15.51:084][355]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2025.08.03-02.15.51:084][355]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2025.08.03-02.15.51:086][355]LogAudioMixer: Display: Initializing audio mixer using platform API: 'XAudio2'
+[2025.08.03-02.15.51:169][355]LogAudioMixer: Display: Using Audio Hardware Device Speaker(2- Realtek(R) Audio)
+[2025.08.03-02.15.51:170][355]LogAudioMixer: Display: Initializing Sound Submixes...
+[2025.08.03-02.15.51:170][355]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2025.08.03-02.15.51:170][355]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2025.08.03-02.15.51:170][355]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called. InstanceID=33
+[2025.08.03-02.15.51:171][355]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=33
+[2025.08.03-02.15.51:173][355]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=33
+[2025.08.03-02.15.51:173][355]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time. InstanceID=33
+[2025.08.03-02.15.51:173][355]LogInit: FAudioDevice initialized with ID 33.
+[2025.08.03-02.15.51:173][355]LogAudio: Display: Audio Device (ID: 33) registered with world 'Main'.
+[2025.08.03-02.15.51:173][355]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 33
+[2025.08.03-02.15.51:178][355]LogLoad: Game class is 'GameModeBase'
+[2025.08.03-02.15.51:184][355]LogWorld: Bringing World /Game/StarterContent/Maps/UEDPIE_0_Main.Main up for play (max tick rate 60) at 2025.08.03-11.15.51
+[2025.08.03-02.15.51:185][355]LogWorld: Bringing up level for play took: 0.007381
+[2025.08.03-02.15.51:189][355]PIE: Server logged in
+[2025.08.03-02.15.51:191][355]PIE: Play in editor total start time 0.167 seconds.
+[2025.08.03-02.16.00:132][883]LogBlueprintUserMessages: [BP_canonball_C_0] Hello
+[2025.08.03-02.16.00:132][883]LogBlueprintUserMessages: [BP_canonball_C_0] BP_canonball_C_0.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.00:767][921]LogBlueprintUserMessages: [BP_canonball_C_1] Hello
+[2025.08.03-02.16.00:767][921]LogBlueprintUserMessages: [BP_canonball_C_1] BP_canonball_C_1.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.01:119][942]LogBlueprintUserMessages: [BP_canonball_C_2] Hello
+[2025.08.03-02.16.01:119][942]LogBlueprintUserMessages: [BP_canonball_C_2] BP_canonball_C_2.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.01:518][966]LogBlueprintUserMessages: [BP_canonball_C_3] Hello
+[2025.08.03-02.16.01:518][966]LogBlueprintUserMessages: [BP_canonball_C_3] BP_canonball_C_3.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.01:717][978]LogBlueprintUserMessages: [BP_canonball_C_4] Hello
+[2025.08.03-02.16.01:717][978]LogBlueprintUserMessages: [BP_canonball_C_4] BP_canonball_C_4.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.01:900][989]LogBlueprintUserMessages: [BP_canonball_C_5] Hello
+[2025.08.03-02.16.01:900][989]LogBlueprintUserMessages: [BP_canonball_C_5] BP_canonball_C_5.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.02:017][996]LogBlueprintUserMessages: [BP_canonball_C_6] Hello
+[2025.08.03-02.16.02:017][996]LogBlueprintUserMessages: [BP_canonball_C_6] BP_canonball_C_6.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.02:184][  6]LogBlueprintUserMessages: [BP_canonball_C_7] Hello
+[2025.08.03-02.16.02:184][  6]LogBlueprintUserMessages: [BP_canonball_C_7] BP_canonball_C_7.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.02:352][ 16]LogBlueprintUserMessages: [BP_canonball_C_8] Hello
+[2025.08.03-02.16.02:352][ 16]LogBlueprintUserMessages: [BP_canonball_C_8] BP_canonball_C_8.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.02:519][ 26]LogBlueprintUserMessages: [BP_canonball_C_9] Hello
+[2025.08.03-02.16.02:519][ 26]LogBlueprintUserMessages: [BP_canonball_C_9] BP_canonball_C_9.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.02:668][ 35]LogBlueprintUserMessages: [BP_canonball_C_10] Hello
+[2025.08.03-02.16.02:668][ 35]LogBlueprintUserMessages: [BP_canonball_C_10] BP_canonball_C_10.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.02:802][ 43]LogBlueprintUserMessages: [BP_canonball_C_11] Hello
+[2025.08.03-02.16.02:803][ 43]LogBlueprintUserMessages: [BP_canonball_C_11] BP_canonball_C_11.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.03:469][ 83]LogBlueprintUserMessages: [BP_canonball_C_12] Hello
+[2025.08.03-02.16.03:469][ 83]LogBlueprintUserMessages: [BP_canonball_C_12] BP_canonball_C_12.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.03:635][ 93]LogBlueprintUserMessages: [BP_canonball_C_13] Hello
+[2025.08.03-02.16.03:635][ 93]LogBlueprintUserMessages: [BP_canonball_C_13] BP_canonball_C_13.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.03:819][104]LogBlueprintUserMessages: [BP_canonball_C_14] Hello
+[2025.08.03-02.16.03:819][104]LogBlueprintUserMessages: [BP_canonball_C_14] BP_canonball_C_14.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.04:234][129]LogBlueprintUserMessages: [BP_canonball_C_15] Hello
+[2025.08.03-02.16.04:234][129]LogBlueprintUserMessages: [BP_canonball_C_15] BP_canonball_C_15.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.04:385][138]LogBlueprintUserMessages: [BP_canonball_C_16] Hello
+[2025.08.03-02.16.04:385][138]LogBlueprintUserMessages: [BP_canonball_C_16] BP_canonball_C_16.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.04:551][148]LogBlueprintUserMessages: [BP_canonball_C_17] Hello
+[2025.08.03-02.16.04:551][148]LogBlueprintUserMessages: [BP_canonball_C_17] BP_canonball_C_17.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.04:735][159]LogBlueprintUserMessages: [BP_canonball_C_18] Hello
+[2025.08.03-02.16.04:735][159]LogBlueprintUserMessages: [BP_canonball_C_18] BP_canonball_C_18.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.04:901][169]LogBlueprintUserMessages: [BP_canonball_C_19] Hello
+[2025.08.03-02.16.04:901][169]LogBlueprintUserMessages: [BP_canonball_C_19] BP_canonball_C_19.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.05:087][180]LogBlueprintUserMessages: [BP_canonball_C_20] Hello
+[2025.08.03-02.16.05:087][180]LogBlueprintUserMessages: [BP_canonball_C_20] BP_canonball_C_20.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.05:285][192]LogBlueprintUserMessages: [BP_canonball_C_21] Hello
+[2025.08.03-02.16.05:285][192]LogBlueprintUserMessages: [BP_canonball_C_21] BP_canonball_C_21.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.05:435][201]LogBlueprintUserMessages: [BP_canonball_C_22] Hello
+[2025.08.03-02.16.05:435][201]LogBlueprintUserMessages: [BP_canonball_C_22] BP_canonball_C_22.StaticMeshComponent0 Sphere
+[2025.08.03-02.16.11:534][564]LogRenderer: Warning: [VSM] Non-Nanite Marking Job Queue overflow. Performance may be affected. This occurs when many non-nanite meshes cover a large area of the shadow map.
+[2025.08.03-02.16.17:307][843]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2025.08.03-02.16.17:307][843]LogWorld: BeginTearingDown for /Game/StarterContent/Maps/UEDPIE_0_Main
+[2025.08.03-02.16.17:308][843]LogWorld: UWorld::CleanupWorld for Main, bSessionEnded=true, bCleanupResources=true
+[2025.08.03-02.16.17:312][843]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.08.03-02.16.17:313][843]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2025.08.03-02.16.17:318][843]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.08.03-02.16.17:348][843]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2025.08.03-02.16.17:349][843]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 33
+[2025.08.03-02.16.17:349][843]LogAudioMixer: Display: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=33, StreamState=4
+[2025.08.03-02.16.17:351][843]LogAudioMixer: Display: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=33, StreamState=2
+[2025.08.03-02.16.17:364][843]LogUObjectHash: Compacting FUObjectHashTables data took   1.68ms
+[2025.08.03-02.16.17:430][844]LogPlayLevel: Display: Destroying online subsystem :Context_40
+[2025.08.03-02.20.31:789][663]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 82615.898438
+[2025.08.03-02.20.32:789][666]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.08.03-02.20.32:789][666]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 82616.570312, Update Interval: 332.005981
