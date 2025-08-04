@@ -1,22 +1,23 @@
 # 창고 부수기 (Warehouse Wreckage)
 - 간단한 창고 부수기 게임을 구현해보자
-- 
+- 30발 장착
+- 30발 소진 시 5초후 게임 재시작
 
-## 바라보는 방향으로 공 던지기 구현
-- get player pawn 노드로 actor location과 control rotation 획득
-  - get actor location으로 플레이어의 현재 좌표 획득
-  - get control rotation으로 플레이어가 바라보는 방향 획득
-- spawn actor 노드로 발사체 소환
-  - 발사체 방향을 플레이어가 바라보는 방향으로 회전
-  - get actor forward vector로 발사체의 방향을 impulse 노드에 전달 <br>
-  +) control rotation vector를 impulse에 바로 전달해도 됨
+## 투사체 발사
+- keyboard event로 발사 키 지정
+- player pawn 정보(위치, 방향) 가져오기
+- actor(투사체) 스폰
+- impulse로 발사 구현
 
 ![shootingBall](images/shootingBall.gif)
 
 ## 창고 구현
+- fab에서 에셋 가져오고 사용
+- 시간대 조절
+
 ![warehousePreview](images/warehousePreview.gif)
 
-## 충돌 메쉬 사용
+## 메쉬 충돌
 - 게임 시작 시 메쉬들이 서로 팅겨져 나가는 현상 개선
 - 10 DOP-Z simplified collision 사용
   
@@ -28,9 +29,16 @@
   
 ![AfterSimplifiedCollision](images/SimplifiedBarrelMeshes.gif)
 
-# 총알 수 구현
-- 기본 30발
-- 전부 사용 시 발사 불가능
-- 전부 사용 후 발사 시도 시 dry fire 효과음 출력
+## 총알 수 구현
+- 기본적인 프로그래밍 개념을 블루프린트에서 구현 (branch, return, variable, etc...)
 
 ![OutOfAmmo](images/OutOfAmmo.gif)
+
+## 게임 재시작
+- 30발 소진 시 5초후 게임 재시작
+- delay, open level node 사용
+
+![GameRestart](images/GameRestart.gif)
+
+## 문제점
+- 이동하는 도중 투사체 발사 시 플레이어의 z축이 상승
