@@ -23,4 +23,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	FVector MyVector = FVector(-15310.0, -2500.0, 4056.0);
+	
+
 };
