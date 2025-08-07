@@ -5,4 +5,4 @@
 - cpp Tick() 사용
 - SetActorLocation에 매 틱마다 +=1 되는 FVector 전달
 
-![TickPractice](ObstacleAssault/images/TickPractice.gif)
+![TickPractice](images/TickPractice.gif)
