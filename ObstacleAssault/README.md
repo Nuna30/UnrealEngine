@@ -13,3 +13,11 @@
 - 시작점에서 100cm 좌우 반복 운동
 
 ![MovingBackAndForthgPlatform](images/MovingBackAndFormPlatform.gif)
+
+## 매우 빠른 반복 운동
+- 속력이 너무 빠르면 제한지점을 벗어나도 delta time 동안 많은 거리를 이동 <br>
+  => 플랫폼이 예상치 못한 곳까지 이동하게 됨
+- GetSafeNormal로 제한 거리 계산 <br>
+  => 제한지점을 벗어나면 SetActorLocation(제한지점)
+
+![GetSafeNormal](images/GetSafeNormal.gif)
