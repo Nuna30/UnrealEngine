@@ -21,3 +21,22 @@
   => 제한지점을 벗어나면 SetActorLocation(제한지점)
 
 ![GetSafeNormal](images/GetSafeNormal.gif)
+
+## 캐릭터를 미는 큐브
+![CollisionGlitch](images/CollisionGlitch.gif)
+<br>**Collision Glitch**<br>
+- 캐릭터 코드는 움직이지 않으면 collision을 확인하지 않음
+- 위와 같은 현상 발생
+
+![CharacterMoveComponent](images/CharacterMoveComponent.gif)
+<br>**CharacterMovementComponent**<br>
+- 캐릭터를 매 tick 마다 z += 1, z -= 1 하도록 BP_ThirdPersonCharacter 수정
+- CharacterMovementComponent, MoveUpdatedComponent 사용
+- 하지만 캐릭터가 정면만 바라보는 버그 발생 <br>
+
+
+![GetActorRotation](images/GetActorRotation.gif)
+<br>**Get Actor Rotation**<br>
+- 캐릭터의 rotation도 업데이트되도록 수정
+- GetActorRotation 사용 <br>
+  
