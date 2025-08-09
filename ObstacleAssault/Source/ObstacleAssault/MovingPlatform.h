@@ -31,4 +31,9 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "MovingPlatform")
 	float MoveDistance = 200;
+
+private:
+	// move platform
+	void MovePlatform(float DeltatTime);
+	void RotatePlatform(float DeltaTime);
 };

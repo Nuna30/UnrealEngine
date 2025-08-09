@@ -24,15 +24,27 @@ void AMovingPlatform::BeginPlay()
 void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	MovePlatform(DeltaTime);
+}
 
+void AMovingPlatform::MovePlatform(float DeltaTime)
+{
 	FVector CurrentLocation = GetActorLocation();
 	CurrentLocation += (PlatformVelocity * DeltaTime);
 	SetActorLocation(CurrentLocation);
 	float DistanceMoved = FVector::Dist(StartLocation, CurrentLocation);
 
 	if (DistanceMoved > MoveDistance) {
+		FString ActorName = GetName();
+		float OverShoot = DistanceMoved - MoveDistance;
+		UE_LOG(LogTemp, Display, TEXT("%s Overshoot : %f"), *ActorName, OverShoot);
 		SetActorLocation(StartLocation + PlatformVelocity.GetSafeNormal() * MoveDistance);
 		PlatformVelocity *= -1;
 	}
+}
+
+void AMovingPlatform::RotatePlatform(float DeltaTime)
+{
+
 }
 
