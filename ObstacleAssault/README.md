@@ -39,4 +39,8 @@
 <br>**Get Actor Rotation**<br>
 - 캐릭터의 rotation도 업데이트되도록 수정
 - GetActorRotation 사용 <br>
-  
+
+## 회전체
+- FRotator, AddActorLocalRotation 사용
+
+![Rotator](images/Rotator.gif)
