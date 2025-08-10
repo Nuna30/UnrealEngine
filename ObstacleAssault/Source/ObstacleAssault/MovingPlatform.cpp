@@ -29,22 +29,18 @@ void AMovingPlatform::Tick(float DeltaTime)
 
 void AMovingPlatform::MovePlatform(float DeltaTime)
 {
+	// 현재 위치에 속력 벡터 더해서 플랫폼 이동
 	FVector CurrentLocation = GetActorLocation();
 	CurrentLocation += (PlatformVelocity * DeltaTime);
 	SetActorLocation(CurrentLocation);
+
+	// 시작점 기준 플랫폼이 이동한 거리 계산
 	float DistanceMoved = FVector::Dist(StartLocation, CurrentLocation);
 
+	// 제한 거리를 벗어나면 최대 제한 거리에 플랫폼을 위치 시킴
 	if (DistanceMoved > MoveDistance) {
-		FString ActorName = GetName();
-		float OverShoot = DistanceMoved - MoveDistance;
-		UE_LOG(LogTemp, Display, TEXT("%s Overshoot : %f"), *ActorName, OverShoot);
 		SetActorLocation(StartLocation + PlatformVelocity.GetSafeNormal() * MoveDistance);
 		PlatformVelocity *= -1;
 	}
-}
-
-void AMovingPlatform::RotatePlatform(float DeltaTime)
-{
-
 }
 
