@@ -4,4 +4,4 @@
 
 ## 레벨 디자인
 
-![preview](CryptRaider/images/preview.png)
+![preview](./images/preview.png)
