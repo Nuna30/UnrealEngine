@@ -1,0 +1,27 @@
+# Unreal Engine typical ignores
+*.sln
+*.suo
+*.user
+*.userprefs
+*.opensdf
+*.sdf
+*.VC.db
+.vscode/
+
+# Build folders
+Binaries/
+Build/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# Config local override
+*.local
+
+# Ignore temporary files
+*.log
+*.tmp
+
+# Optional
+.DS_Store
+Thumbs.db
