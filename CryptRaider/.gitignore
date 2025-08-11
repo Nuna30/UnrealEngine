@@ -14,6 +14,7 @@ Build/
 DerivedDataCache/
 Intermediate/
 Saved/
+Content/
 
 # Config local override
 *.local
