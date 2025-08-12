@@ -14,7 +14,7 @@ Build/
 DerivedDataCache/
 Intermediate/
 Saved/
-Content/
+Content/MedievalDungeon/
 
 # Config local override
 *.local
