@@ -40,15 +40,9 @@ void UAC_Rotator::DoRotate(float DeltaTime)
 	FRotator CurrentRotation = GetOwner()->GetActorRotation();
 
 	float diff = CalcRotationDiff(CurrentRotation, RotationOffset);
-	UE_LOG(LogTemp, Display, TEXT("DoRotate diff : %f"), diff);
 
 	if (CalcRotationDiff(CurrentRotation, RotationOffset) <= 1.0f) GetOwner()->SetActorRotation(RotationOffset);
 	else {
-		UE_LOG(LogTemp, Display, TEXT("RotationOffset : %f %f %f"), RotationOffset.Roll, RotationOffset.Pitch, RotationOffset.Yaw);
-		UE_LOG(LogTemp, Display, TEXT("RotationOffset : %f %f %f"), RotationOffset.Roll, RotationOffset.Pitch, RotationOffset.Yaw);
-		UE_LOG(LogTemp, Display, TEXT("RotationOffset : %f %f %f"), RotationOffset.Roll, RotationOffset.Pitch, RotationOffset.Yaw);
-		UE_LOG(LogTemp, Display, TEXT("RotationTime : %f"), RotationTime);
-		UE_LOG(LogTemp, Display, TEXT("RotationSpeed : %f %f %f"), RotationSpeed.Roll, RotationSpeed.Pitch, RotationSpeed.Yaw);
 		if (Clockwise) GetOwner()->AddActorLocalRotation(RotationSpeed * DeltaTime);
 		else GetOwner()->AddActorLocalRotation(RotationSpeed * DeltaTime * -1);
 	}
@@ -59,7 +53,6 @@ void UAC_Rotator::DoReturn(float DeltaTime)
 	FRotator CurrentRotation = GetOwner()->GetActorRotation();
 
 	float diff = CalcRotationDiff(CurrentRotation, OriginalRotation);
-	UE_LOG(LogTemp, Display, TEXT("DoReturn diff : %f"), diff);
 
 	if (CalcRotationDiff(CurrentRotation, OriginalRotation) <= 1.0f) GetOwner()->SetActorRotation(OriginalRotation);
 		else {
@@ -70,8 +63,5 @@ void UAC_Rotator::DoReturn(float DeltaTime)
 
 float UAC_Rotator::CalcRotationDiff(FRotator fr1, FRotator fr2) {
 	FRotator diff = fr1 - fr2;
-	UE_LOG(LogTemp, Display, TEXT("fr1 diff : %f %f %f"), fr1.Roll, fr1.Pitch, fr1.Yaw);
-	UE_LOG(LogTemp, Display, TEXT("fr2 diff : %f %f %f"), fr2.Roll, fr2.Pitch, fr2.Yaw);
-	UE_LOG(LogTemp, Display, TEXT("Rotation diff : %f %f %f"), diff.Roll, diff.Pitch, diff.Yaw);
 	return FMath::Sqrt(diff.Pitch * diff.Pitch + diff.Yaw * diff.Yaw + diff.Roll * diff.Roll);
 }
