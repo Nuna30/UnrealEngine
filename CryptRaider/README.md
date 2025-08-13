@@ -5,3 +5,14 @@
 ## 레벨 디자인
 
 ![preview](./images/preview.png)
+
+## 문 구현
+- 액터 컴포넌트 생성
+
+#### 상하이동 문
+
+![UpAndDownDoor](./images/UpAndDownDoor.gif)
+
+#### 회전하는 문
+
+![RotatingDoor](./images/RotatingDoor.gif)
