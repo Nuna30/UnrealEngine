@@ -3,6 +3,7 @@
 
 #include "Grabber.h"
 #include "DrawDebugHelpers.h"
+#include "PhysicsEngine/PhysicsHandleComponent.h"
 
 // Sets default values for this component's properties
 UGrabber::UGrabber()
@@ -20,7 +21,12 @@ void UGrabber::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
+	UPhysicsHandleComponent* PhysicsHandle = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
+	if (PhysicsHandle == nullptr) {
+		UE_LOG(LogTemp, Warning, TEXT("The PhysicsHandle pointer is null!!"));
+	} else {
+		UE_LOG(LogTemp, Display, TEXT("PhysicsHandle name : %s"), *PhysicsHandle->GetName());
+	}
 	
 }
 
@@ -53,6 +59,8 @@ void UGrabber::Grab() {
 
 	if (HasHit) {
 		UE_LOG(LogTemp, Display, TEXT("name : %s"), *HitResult.GetActor()->GetActorNameOrLabel());
+		DrawDebugSphere(GetWorld(), HitResult.Location, 10, 10, FColor::Blue, false, 5);
+		DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 10, 10, FColor::Green, false, 5);
 	} else {
 		UE_LOG(LogTemp, Display, TEXT("No Actor Hit"));
 	}
