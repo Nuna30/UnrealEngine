@@ -24,6 +24,14 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	FRotator OriginalRotation;
+	FRotator RotationSpeed;
+
+	void DoRotate(float DeltaTime);
+	void DoReturn(float DeltaTime);
+	float CalcRotationDiff(FRotator fr1, FRotator fr2);
+
+private:
 	UPROPERTY(EditAnywhere, Category = "Rotation")
 	FRotator RotationOffset;
 	
@@ -35,11 +43,4 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Rotation")
 	bool Clockwise;
-
-	FRotator OriginalRotation;
-	FRotator RotationSpeed;
-
-	void DoRotate(float DeltaTime);
-	void DoReturn(float DeltaTime);
-	float CalcRotationDiff(FRotator fr1, FRotator fr2);
 };

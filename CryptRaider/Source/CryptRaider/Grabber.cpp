@@ -2,6 +2,7 @@
 
 
 #include "Grabber.h"
+#include "DrawDebugHelpers.h"
 
 // Sets default values for this component's properties
 UGrabber::UGrabber()
@@ -28,8 +29,31 @@ void UGrabber::BeginPlay()
 void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	FRotator CompRot = GetComponentRotation();
-	UE_LOG(LogTemp, Display, TEXT("Grabber Rotation : %s"), *CompRot.ToCompactString());
 }
 
+void UGrabber::Release() {
+	UE_LOG(LogTemp, Display, TEXT("Released Grabber"));
+}
+
+void UGrabber::Grab() {
+	FVector start = GetComponentLocation();
+	FVector end = start + GetForwardVector() * MaxGrabDistance;
+	DrawDebugLine(GetWorld(), start, end, FColor::Red);
+
+	FCollisionShape Sphere = FCollisionShape::MakeSphere(MaxGrabDistance);
+	FHitResult HitResult;
+	bool HasHit = GetWorld()->SweepSingleByChannel(
+		HitResult,
+		start,
+		end,
+		FQuat::Identity,
+		ECC_GameTraceChannel2,
+		Sphere
+	);
+
+	if (HasHit) {
+		UE_LOG(LogTemp, Display, TEXT("name : %s"), *HitResult.GetActor()->GetActorNameOrLabel());
+	} else {
+		UE_LOG(LogTemp, Display, TEXT("No Actor Hit"));
+	}
+}
