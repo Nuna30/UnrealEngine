@@ -16,3 +16,10 @@
 #### 회전하는 문
 
 ![RotatingDoor](./images/RotatingDoor.gif)
+
+## 잡기
+- 트레이스 채널 설정
+- Grabber 컴포넌트 생성
+- DrawDebugLine, Sphere
+  
+![Grab](./images/Grab.gif)
