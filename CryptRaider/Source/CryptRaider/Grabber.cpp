@@ -3,7 +3,6 @@
 
 #include "Grabber.h"
 #include "DrawDebugHelpers.h"
-#include "PhysicsEngine/PhysicsHandleComponent.h"
 
 // Sets default values for this component's properties
 UGrabber::UGrabber()
@@ -20,14 +19,7 @@ UGrabber::UGrabber()
 void UGrabber::BeginPlay()
 {
 	Super::BeginPlay();
-
-	UPhysicsHandleComponent* PhysicsHandle = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
-	if (PhysicsHandle == nullptr) {
-		UE_LOG(LogTemp, Warning, TEXT("The PhysicsHandle pointer is null!!"));
-	} else {
-		UE_LOG(LogTemp, Display, TEXT("PhysicsHandle name : %s"), *PhysicsHandle->GetName());
-	}
-	
+	PhysicsHandle = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
 }
 
 
@@ -35,6 +27,12 @@ void UGrabber::BeginPlay()
 void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+
+	PhysicsHandle = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
+	if (PhysicsHandle == nullptr) return;
+
+	FVector TargetLocation = GetComponentLocation() + GetForwardVector() * HoldDistance;
+	PhysicsHandle->SetTargetLocationAndRotation(TargetLocation, GetComponentRotation());
 }
 
 void UGrabber::Release() {
@@ -42,12 +40,17 @@ void UGrabber::Release() {
 }
 
 void UGrabber::Grab() {
+	PhysicsHandle = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
+	if (PhysicsHandle == nullptr) return;
+
 	FVector start = GetComponentLocation();
 	FVector end = start + GetForwardVector() * MaxGrabDistance;
-	DrawDebugLine(GetWorld(), start, end, FColor::Red);
+	
+	// DrawDebugLine(GetWorld(), start, end, FColor::Red, false, 5);
 
 	FCollisionShape Sphere = FCollisionShape::MakeSphere(MaxGrabDistance);
 	FHitResult HitResult;
+
 	bool HasHit = GetWorld()->SweepSingleByChannel(
 		HitResult,
 		start,
@@ -58,10 +61,15 @@ void UGrabber::Grab() {
 	);
 
 	if (HasHit) {
-		UE_LOG(LogTemp, Display, TEXT("name : %s"), *HitResult.GetActor()->GetActorNameOrLabel());
-		DrawDebugSphere(GetWorld(), HitResult.Location, 10, 10, FColor::Blue, false, 5);
-		DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 10, 10, FColor::Green, false, 5);
+		PhysicsHandle->GrabComponentAtLocationWithRotation(
+			HitResult.GetComponent(),
+			NAME_None,
+			HitResult.ImpactPoint,
+			GetComponentRotation()
+		);
+
+		// DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 10, 10, FColor::Blue, false, 5);
 	} else {
-		UE_LOG(LogTemp, Display, TEXT("No Actor Hit"));
+		// DrawDebugSphere(GetWorld(), HitResult.Location, 10, 10, FColor::Green, false, 5);
 	}
 }
