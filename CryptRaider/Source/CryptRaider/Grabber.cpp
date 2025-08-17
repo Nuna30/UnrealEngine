@@ -1,6 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "Grabber.h"
 #include "DrawDebugHelpers.h"
 
@@ -50,25 +49,8 @@ void UGrabber::Release() {
 }
 
 void UGrabber::Grab() {
-	PhysicsHandle = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
-	if (PhysicsHandle == nullptr) return;
-
-	FVector start = GetComponentLocation();
-	FVector end = start + GetForwardVector() * MaxGrabDistance;
-
-	// DrawDebugLine(GetWorld(), start, end, FColor::Red, false, 5);
-
-	FCollisionShape Sphere = FCollisionShape::MakeSphere(MaxGrabDistance);
 	FHitResult HitResult;
-
-	bool HasHit = GetWorld()->SweepSingleByChannel(
-		HitResult,
-		start,
-		end,
-		FQuat::Identity,
-		ECC_GameTraceChannel2,
-		Sphere
-	);
+	bool HasHit = GetGrabbableInReach(HitResult);
 
 	if (HasHit) {
 		HitResult.GetComponent()->WakeAllRigidBodies();
@@ -84,4 +66,27 @@ void UGrabber::Grab() {
 	} else {
 		// DrawDebugSphere(GetWorld(), HitResult.Location, 10, 10, FColor::Green, false, 5);
 	}
+}
+
+bool UGrabber::GetGrabbableInReach(FHitResult& HitResult) {
+	PhysicsHandle = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
+	if (PhysicsHandle == nullptr) return false;
+
+	FVector start = GetComponentLocation();
+	FVector end = start + GetForwardVector() * MaxGrabDistance;
+
+	// DrawDebugLine(GetWorld(), start, end, FColor::Red, false, 5);
+
+	FCollisionShape Sphere = FCollisionShape::MakeSphere(MaxGrabDistance);
+
+	bool HasHit = GetWorld()->SweepSingleByChannel(
+		HitResult,
+		start,
+		end,
+		FQuat::Identity,
+		ECC_GameTraceChannel2,
+		Sphere
+	);
+
+	return HasHit;
 }

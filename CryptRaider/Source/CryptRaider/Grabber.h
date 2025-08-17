@@ -33,9 +33,12 @@ public:
 
 	UPhysicsHandleComponent* PhysicsHandle;
 
+	bool GetGrabbableInReach(FHitResult& HitResult);
 private:
 	UPROPERTY(EditAnywhere, Category = "Grabber")
 	float MaxGrabDistance = 100;
+
 	UPROPERTY(EditAnywhere, Category = "Grabber")
 	float HoldDistance = 100;
+
 };
