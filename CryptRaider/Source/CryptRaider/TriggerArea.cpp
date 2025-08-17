@@ -55,7 +55,7 @@ AActor* UTriggerArea::GetAcceptableActor() const {
     GetOverlappingActors(Actors);
 
     for (int i = 0; i < Actors.Num(); i++) {
-        if (Actors[i]->ActorHasTag(TriggerTag)) {
+        if (Actors[i]->ActorHasTag(TriggerTag) && !(Actors[i]->ActorHasTag("Grabbed"))) {
             return Actors[i];
         }
     }

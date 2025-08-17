@@ -44,8 +44,15 @@ void UGrabber::Release() {
 	UPrimitiveComponent* HasGrabbed = PhysicsHandle->GetGrabbedComponent();
 	if (HasGrabbed != nullptr) {
 		PhysicsHandle->GetGrabbedComponent()->WakeAllRigidBodies();
+		PhysicsHandle->GetGrabbedComponent()->GetOwner()->Tags.Remove("Grabbed");
+		// GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Green, *(PhysicsHandle->GetGrabbedComponent()->GetOwner()->GetActorNameOrLabel()));
 		PhysicsHandle->ReleaseComponent();
 	}
+
+	// 그냥 GetOwner()는 BP_Player임
+	// 양초대를 얻고 싶으면 PhysicsHandle을 통해서 GetGrabbedComponent를 사용해야함
+	// GetOwner()->Tags.Remove("Grabbed");
+	// GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Green, *(GetOwner()->GetActorNameOrLabel()));
 }
 
 void UGrabber::Grab() {
@@ -54,6 +61,8 @@ void UGrabber::Grab() {
 
 	if (HasHit) {
 		HitResult.GetComponent()->WakeAllRigidBodies();
+
+		HitResult.GetActor()->Tags.Add("Grabbed");
 
 		PhysicsHandle->GrabComponentAtLocationWithRotation(
 			HitResult.GetComponent(),
