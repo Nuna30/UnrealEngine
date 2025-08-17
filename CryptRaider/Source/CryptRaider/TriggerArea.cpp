@@ -30,11 +30,20 @@ void UTriggerArea::TickComponent(float DeltaTime, ELevelTick TickType, FActorCom
     if (Mover != nullptr) { // 이거 안 해주면 실행 직후 바로 팅김
         if (Actor == nullptr) {
             Mover->SetShouldMove(false);
-            GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Green, TEXT("lock..."));
+            // GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Green, TEXT("lock..."));
         }
         else {
+            UPrimitiveComponent* Component = Cast<UPrimitiveComponent>(Actor->GetRootComponent());
+            if (Component != nullptr) {
+                Component->SetSimulatePhysics(false);
+                // Actor->AttachToComponent(this, FAttachmentTransformRules::KeepWorldTransform);
+                Actor->AttachToComponent(this, FAttachmentTransformRules::KeepRelativeTransform);
+                Actor->SetActorRelativeLocation(FVector(0.f, -25.f, -25.f));
+                Actor->SetActorRelativeRotation(FRotator::ZeroRotator);
+                Actor->SetActorRelativeScale3D(FVector(1.f, 1.f, 1.f)); 
+            }
             Mover->SetShouldMove(true);
-            GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Green, TEXT("Unlock!!"));
+            // GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Green, TEXT("Unlock!!"));
         }
     }
 
