@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/BoxComponent.h"
+#include "UpAndDownMover.h"
 #include "TriggerArea.generated.h"
 
 /**
@@ -24,8 +25,13 @@ protected:
 public:
 	void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	AActor* GetAcceptableActor() const;
+
+    UFUNCTION(BlueprintCallable)
+    void SetMover(UUpAndDownMover* Mover);
+
 private:
 	UPROPERTY(EditAnywhere, Category = "TriggerArea")
 	FName TriggerTag;
-
+    UUpAndDownMover* Mover;
 };

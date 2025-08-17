@@ -25,6 +25,7 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	void Go(float DeltaTime);
 	void Return(float DeltaTime);
+	void SetShouldMove(bool ShouldMove);
 
 private:
 	UPROPERTY(EditAnywhere, Category = "Moving")
@@ -33,12 +34,9 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Moving")
 	float MoveTime;
 
-	UPROPERTY(EditAnywhere, Category = "Moving")
-	bool move = false;
-		
 	FVector OriginalLocation;
 	FVector TargetLocation;
 	float speed;
-		
+	bool ShouldMove;
 		
 };

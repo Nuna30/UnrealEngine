@@ -31,7 +31,7 @@ void UUpAndDownMover::TickComponent(float DeltaTime, ELevelTick TickType, FActor
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 		
-	if (move) Go(DeltaTime);
+	if (ShouldMove) Go(DeltaTime);
 	else Return(DeltaTime);
 }
 
@@ -47,4 +47,8 @@ void UUpAndDownMover::Return(float DeltaTime)
 	FVector CurrentLocation = GetOwner()->GetActorLocation();
 	FVector NewLocation = FMath::VInterpConstantTo(CurrentLocation, OriginalLocation, DeltaTime, speed);
 	GetOwner()->SetActorLocation(NewLocation);
+}
+
+void UUpAndDownMover::SetShouldMove(bool NewShouldMove) {
+	ShouldMove = NewShouldMove;
 }
