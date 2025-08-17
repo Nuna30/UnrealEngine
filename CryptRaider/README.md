@@ -27,3 +27,9 @@
 ## 놓기
 
 ![Release](./images/Release.gif)
+
+## 특수 장치
+- 문 앞에 특정 물건을 놓으면(release) 문이 열림
+- 기믹 수행 시 물건을 고정 시킴
+
+![ActorFixing](./images/ActorFixing.gif)
