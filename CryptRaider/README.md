@@ -23,3 +23,7 @@
 - DrawDebugLine, Sphere
   
 ![Grab](./images/Grab.gif)
+
+## 놓기
+
+![Release](./images/Release.gif)
