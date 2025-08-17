@@ -37,10 +37,11 @@ void UTriggerArea::TickComponent(float DeltaTime, ELevelTick TickType, FActorCom
             if (Component != nullptr) {
                 Component->SetSimulatePhysics(false);
                 // Actor->AttachToComponent(this, FAttachmentTransformRules::KeepWorldTransform);
-                Actor->AttachToComponent(this, FAttachmentTransformRules::KeepRelativeTransform);
-                Actor->SetActorRelativeLocation(FVector(0.f, -25.f, -25.f));
-                Actor->SetActorRelativeRotation(FRotator::ZeroRotator);
-                Actor->SetActorRelativeScale3D(FVector(1.f, 1.f, 1.f)); 
+                // Actor->AttachToComponent(this, FAttachmentTransformRules::KeepRelativeTransform);
+                Actor->AttachToComponent(this, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+                Actor->SetActorLocation(FVector(526.0, 2666.0, 266.0));
+                // Actor->SetActorRelativeRotation(FRotator::ZeroRotator);
+                // Actor->SetActorRelativeScale3D(FVector(1.f, 1.f, 1.f)); 
             }
             Mover->SetShouldMove(true);
             // GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Green, TEXT("Unlock!!"));
