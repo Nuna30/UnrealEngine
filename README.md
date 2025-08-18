@@ -6,3 +6,4 @@
   - 창고 부수기 (Warehouse Wreckage)
   - 장애물 달리기 (Obstacle Assault)
   - 지하실 약탈 (Crypt Raider)
+  - 툰 탱크 (Toon Tank)
