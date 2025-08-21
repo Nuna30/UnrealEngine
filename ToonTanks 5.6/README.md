@@ -4,7 +4,7 @@
 ## WASD 이동
 - WASD로 탱크 이동
 - 마우스 커서 방향으로 탱크 터렛 회전
-- 
+  
 ![WASD](./images/WASD.gif)
 
 ## 회전 보간 및 블로킹 볼륨 설치
@@ -17,3 +17,9 @@
 - 사정 범위 내 탱크 접근 시 탱크가 있는 방향으로 타워의 터렛 회전
   
 ![TowerRotation](./images/TowerRotation.gif)
+
+## Fire 디버깅
+- Fire 함수 Tank에 우선 적용
+- DebugSphere 사용하여 시각화
+
+  ![FireDebugging](./images/FireDebugging.gif)
