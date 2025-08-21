@@ -22,4 +22,8 @@
 - Fire 함수 Tank에 우선 적용
 - DebugSphere 사용하여 시각화
 
+#### 탱크
   ![FireDebugging](./images/FireDebugging.gif)
+
+#### 타워
+  ![TowerFireDebugging](./images/TowerFireDebugging.gif)
