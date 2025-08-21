@@ -28,5 +28,5 @@ void ABasePawn::RotateTurret(FVector LookAtTarget)
 	FVector ToTarget = LookAtTarget - TurretMesh->GetComponentLocation();
 	FRotator LookAtRotation = ToTarget.Rotation();
 	LookAtRotation.Pitch = 0; LookAtRotation.Roll = 0;
-	TurretMesh->SetWorldRotation(FMath::RInterpTo(TurretMesh->GetComponentRotation(), LookAtRotation, UGameplayStatics::GetWorldDeltaSeconds(this), 5.f));
+	TurretMesh->SetWorldRotation(FMath::RInterpTo(TurretMesh->GetComponentRotation(), LookAtRotation, UGameplayStatics::GetWorldDeltaSeconds(this), 8.f));
 }
