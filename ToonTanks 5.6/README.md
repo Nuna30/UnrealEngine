@@ -3,7 +3,7 @@
 
 ## WASD 이동
 - WASD로 탱크 이동
-- 마우스 커서 방향으로 탱크 터렛 회전
+- DebugSphere로 마우스 커서 인식 확인
   
 ![WASD](./images/WASD.gif)
 
