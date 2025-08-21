@@ -69,4 +69,5 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
     // 프로젝트 세팅에서 설정한 axi mappings group 이름과 같아야 한다.
     PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ATank::Move);
     PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ATank::Turn);
+    PlayerInputComponent->BindAction(TEXT("Fire"), IE_Pressed, this, &ATank::Fire);
 }
