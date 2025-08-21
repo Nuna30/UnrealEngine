@@ -14,6 +14,6 @@
 ![Interpolation](./images/Interpolation.gif)
 
 ## 타워 회전
-- 사정 범위 내 탱크 접근 시 타워가 탱크 방향으로 회전
+- 사정 범위 내 탱크 접근 시 탱크가 있는 방향으로 타워의 터렛 회전
   
 ![TowerRotation](./images/TowerRotation.gif)
