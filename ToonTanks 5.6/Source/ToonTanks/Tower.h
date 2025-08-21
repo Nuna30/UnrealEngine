@@ -21,12 +21,15 @@ protected:
 private:
 	virtual void Tick(float DeltaTime) override;
 
-	void Fire();
 	void LookAtTank();
 	
 	class ATank* Tank;
 
 	UPROPERTY(EditAnywhere, Category = "Tower")
 	float FireRange = 600;
+
+	FTimerHandle FireRateTimerHandle;
+	float FireRate = 2;
+	void CheckFireCondition();
 
 };
