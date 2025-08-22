@@ -27,3 +27,9 @@
 
 #### 타워
   ![TowerFireDebugging](./images/TowerFireDebugging.gif)
+
+## 발사체 이동
+- 마우스 클릭 시 포탄 발사
+- 타워도 2초마다 포탄 발사
+
+![ProjectileMovement](./images/ProjectileMovement.gif)
