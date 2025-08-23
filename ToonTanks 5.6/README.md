@@ -10,7 +10,7 @@
 ## 회전 보간 및 블로킹 볼륨 설치
 - 탱크 터렛의 회전을 보간하여 부드럽게 회전하도록 만듦
 - 맵 사방면에 블로킹 볼륨 설치하여 맵 밖으로 라인 트레이스하지 않도록 설정
-- 
+
 ![Interpolation](./images/Interpolation.gif)
 
 ## 타워 회전
@@ -33,3 +33,10 @@
 - 타워도 2초마다 포탄 발사
 
 ![ProjectileMovement](./images/ProjectileMovement.gif)
+
+## 파괴
+- 총알이 부딪히면 삭제
+- Damage 기능 추가
+- 2대 맞으면 파괴
+
+![Destruction](./images/Destruction.gif)
