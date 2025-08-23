@@ -34,3 +34,9 @@ void ATower::CheckFireCondition()
         Super::Fire();        
     }
 }
+
+void ATower::HandleDestruction()
+{
+    Super::HandleDestruction();
+    Destroy();
+}

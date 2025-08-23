@@ -17,6 +17,10 @@ class TOONTANKS_API ATank : public ABasePawn
 public:
 	ATank();
 
+	void HandleDestruction();
+
+	APlayerController* GetTankPlayerController() const {return TankPlayerController;}
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -29,7 +33,7 @@ private:
 	class USpringArmComponent* SpringArmComp;
 		
 	UPROPERTY(VisibleAnywhere, Category = "Components")
-	class APlayerController* PlayerController;
+	class APlayerController* TankPlayerController;
 
 	UPROPERTY(EditAnywhere, Category = "Tank")
 	float Speed = 400;
