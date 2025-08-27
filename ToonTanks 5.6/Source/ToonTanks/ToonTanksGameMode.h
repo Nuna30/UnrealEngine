@@ -17,13 +17,24 @@ class TOONTANKS_API AToonTanksGameMode : public AGameModeBase
 public:
 
 	void ActorDied(AActor* DeadActor);
-
+	
 protected:
-
+	
 	virtual void BeginPlay() override;
 
-private:
+	// 함수 바디는 .cpp이 아니라 블루프린트에서 구현할 거임
+	UFUNCTION(BlueprintImplementableEvent)
+	void StartGame();
 
-	class ATank* Tank;
+private:
 	
+	class AToonTanksPlayerController* ToonTanksPlayerController;
+	class ATank* Tank;
+
+	// 게임 시작 전 3초 대기
+	float StartDelay = 3;
+
+	// 게임 시작 처리 함수
+	void HandleGameStart();
+
 };
