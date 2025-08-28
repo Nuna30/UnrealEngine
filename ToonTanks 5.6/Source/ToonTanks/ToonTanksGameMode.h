@@ -26,6 +26,10 @@ protected:
 	UFUNCTION(BlueprintImplementableEvent)
 	void StartGame();
 
+	// 위젯으로 구현하므로 BlueprintImplementableEvent 사용
+	UFUNCTION(BlueprintImplementableEvent)
+	void GameOver(bool bWonGame);
+
 private:
 	
 	class AToonTanksPlayerController* ToonTanksPlayerController;
@@ -37,4 +41,6 @@ private:
 	// 게임 시작 처리 함수
 	void HandleGameStart();
 
+	int TargetTowers = 0;
+	int GetTargetTowerCount();
 };
