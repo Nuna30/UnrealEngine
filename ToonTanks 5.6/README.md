@@ -40,3 +40,16 @@
 - 2대 맞으면 파괴
 
 ![Destruction](./images/Destruction.gif)
+
+ ## HUD
+ - 게임 시작 시 카운트 다운
+
+ ![GameStart](./images/GameStart.gif)
+
+- 게임 승리 시
+
+![Winning](./images/Winning.gif)
+
+- 게임 패배 시
+
+![Losing](./images/Losing.gif)
