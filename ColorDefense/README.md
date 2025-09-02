@@ -19,12 +19,10 @@
 
 <details>
   <summary> Ai Move To 노드에 Pawn을 연결하니 움직이지 않음 </summary>
-  
   <p>
     <img src="./images/CanEverAffectNavigationOn.png" width="45%" style="display:inline-block; margin-right:5%;">
     <img src="./images/CanEverAffectNavigationOff.png" width="45%" style="display:inline-block;">
   </p>
-  
   <ul>
     <li>https://dev.epicgames.com/documentation/en-us/unreal-engine/basic-navigation-in-unreal-engine</li>
     <li>위 링크대로 BP_ThirdPersonCharacter를 AI Move To 노드로 움직일 땐 잘 됨</li>
@@ -35,6 +33,14 @@
   </ul>
 </details>
 
+<details>
+  <summary> Creep이 Waypoint의 정중앙을 지나지 않는 문제 </summary>
+  <ul>
+    <li>AIConotroller의 MoveToLocation은 도착 기준을 Actor의 정중앙이 아니라 collsion capsule을 기준으로 함</li>
+    <li>그래서 StaticMesh의 표면이 조금만 도착해도 도착했다고 판정</li>
+    <li>StaticMesh의 collsion을 없애면 될 듯?</li>
+  </ul>
+</details>
 
 
 <details>
