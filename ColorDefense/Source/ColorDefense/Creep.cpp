@@ -3,6 +3,8 @@
 
 #include "Creep.h"
 #include "AIController.h"
+#include "Kismet/GameplayStatics.h"
+#include "WayPoint.h"
 
 // Sets default values
 ACreep::ACreep()
@@ -17,7 +19,24 @@ void ACreep::BeginPlay()
 {
 	Super::BeginPlay();
 
-	MoveTo(-1780, 1780, 5);
+	// AIController 가져오기
+	AIController = Cast<AAIController>(GetController());
+
+	// 목적지에 도착했을 경우를 처리하는 OnMoveCompleted 콜백함수 연결
+	AIController->ReceiveMoveCompleted.AddDynamic(this, &ACreep::OnMoveCompleted);
+
+	// 출발
+	MoveAlong();
+
+	// 위에서 BP_Creep 보기
+	if (ViewInGame) 
+	{
+		APlayerController* PC = GetWorld()->GetFirstPlayerController();
+		if (PC)
+		{
+			PC->SetViewTarget(this);
+		}	
+	}
 	
 }
 
@@ -35,19 +54,21 @@ void ACreep::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 }
 
+// 해당 좌표로 이동
 void ACreep::MoveTo(float x, float y, float z)
 {
-	AAIController* AIController = Cast<AAIController>(GetController());
 	if (AIController)
 	{
 		FVector Destination = FVector(x, y, z);
-		float AcceptanceRadius = 50.0f;
+		float AcceptanceRadius = VAcceptanceRadius;
 		bool bStopOnOverlap = true;
 		bool bUsePathfinding = true;
-		bool bProjectDestinationToNavigation = true;
+		bool bProjectDestinationToNavigation = false;
 		bool bCanStrafe = false;
 		TSubclassOf<UNavigationQueryFilter> FilterClass = nullptr;
-		bool bAllowPartialPath = true;
+		bool bAllowPartialPath = false;
+
+		// GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("MoveToLocation...")));
 
 		EPathFollowingRequestResult::Type Result = AIController->MoveToLocation(
 			Destination,
@@ -60,17 +81,52 @@ void ACreep::MoveTo(float x, float y, float z)
 			bAllowPartialPath
 		);
 
-		// if (Result == EPathFollowingRequestResult::Type::RequestSuccessful)
-		// {
-		// 	UE_LOG(LogTemp, Log, TEXT("MoveToLocation: 이동 요청이 성공적으로 시작되었습니다."));
-		// }
-		// else if (Result == EPathFollowingRequestResult::Type::AlreadyAtGoal)
-		// {
-		// 	UE_LOG(LogTemp, Log, TEXT("MoveToLocation: 이미 목적지에 있습니다."));
-		// }
-		// else // Failed
-		// {
-		// 	UE_LOG(LogTemp, Warning, TEXT("MoveToLocation: 경로 요청에 실패했습니다."));
-		// }
+		// GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("MoveToLocation completed")));
 	}
+	else GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("No AIController")));
+}
+
+// 모든 waypoint들 얻어서 Waypoints 배열에 저장
+void ACreep::GetAllWaypoints()
+{
+	TArray<AActor*> FoundActors;
+    UGameplayStatics::GetAllActorsOfClass(GetWorld(), AWayPoint::StaticClass(), FoundActors);
+	for (AActor* Actor : FoundActors)
+	{
+		AWayPoint* Waypoint = Cast<AWayPoint>(Actor);
+		if (Waypoint)
+		{
+			// GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Added.")));
+			Waypoints.Add(Waypoint);
+		}
+		else GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("No Waypoint")));
+	}
+}
+
+// Wapoint 차례대로 이동
+void ACreep::MoveAlong()
+{
+	GetAllWaypoints();
+	// GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Waypoints.Num() = %d"), Waypoints.Num()));
+    if (Waypoints.Num() > 0)
+	{
+		FVector StartLocation = Waypoints[0]->GetActorLocation();
+		MoveTo(StartLocation.X, StartLocation.Y, StartLocation.Z);
+	}
+	else GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("No Waypoint in Waypoints")));
+}
+
+void ACreep::OnMoveCompleted(FAIRequestID RequestID, EPathFollowingResult::Type Result)
+{
+	// GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("OnMoveCompleted...")));
+
+    CurrentWaypointIndex++;
+    if (Waypoints.IsValidIndex(CurrentWaypointIndex))
+    {
+        FVector NextLocation = Waypoints[CurrentWaypointIndex]->GetActorLocation();
+        MoveTo(NextLocation.X, NextLocation.Y, NextLocation.Z);
+    }
+	else GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("No Waypoints valid index")));
+
+	// GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("OnMoveCompleted completed")));
 }
