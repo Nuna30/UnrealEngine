@@ -35,6 +35,7 @@
 
 <details>
   <summary> Creep이 Waypoint의 정중앙을 지나지 않는 문제 </summary>
+  <img src="./images/IncorrectCrossing.gif" width="45%" style="display:inline-block; margin-right:5%;">
   <ul>
     <li>AIConotroller의 MoveToLocation은 도착 기준을 Actor의 정중앙이 아니라 collsion capsule을 기준으로 함</li>
     <li>그래서 StaticMesh의 표면이 조금만 도착해도 도착했다고 판정</li>
