@@ -45,6 +45,13 @@ void ACreep::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	// 현재 ai 상태 출력
+	if (AIController)
+	{
+		FString StatusString = UEnum::GetValueAsString(AIController->GetMoveStatus());
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, StatusString);
+	}
+
 }
 
 // Called to bind functionality to input
