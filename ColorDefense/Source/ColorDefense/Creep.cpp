@@ -68,7 +68,7 @@ void ACreep::MoveTo(float x, float y, float z)
 	{
 		FVector Destination = FVector(x, y, z);
 		float AcceptanceRadius = VAcceptanceRadius;
-		bool bStopOnOverlap = true;
+		bool bStopOnOverlap = false;
 		bool bUsePathfinding = true;
 		bool bProjectDestinationToNavigation = false;
 		bool bCanStrafe = false;
