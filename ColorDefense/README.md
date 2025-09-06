@@ -64,6 +64,8 @@
 
 
 <details>
-<summary>reference</summary>
-https://dev.epicgames.com/documentation/en-us/unreal-engine/basic-navigation-in-unreal-engine
+  <summary>reference</summary>
+  <ul>
+    <li>https://dev.epicgames.com/documentation/en-us/unreal-engine/basic-navigation-in-unreal-engine</li>
+    <li>https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-actor-lifecycle</li>
 </details>
