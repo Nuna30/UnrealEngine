@@ -6,7 +6,7 @@
 
 ## 크립 이동
 <details>
-<summary>NavMesh</summary>
+<summary>NavMesh 정리</summary>
 <ul>
   <li>navigation mesh</li>
   <li>삼각형은 유일한 평면을 결정하기 때문에 NavMesh에서 폴리곤으로 삼각형 사용</li>
@@ -24,9 +24,10 @@
     <img src="./images/CanEverAffectNavigationOff.png" width="45%" style="display:inline-block;">
   </p>
   <ul>
-    <li>https://dev.epicgames.com/documentation/en-us/unreal-engine/basic-navigation-in-unreal-engine</li>
-    <li>위 링크대로 BP_ThirdPersonCharacter를 AI Move To 노드로 움직일 땐 잘 됨</li>
-    <li>BP_APawnCreep으로 따라해보니 움직이지 않음</li>
+    <b>[ 문제 상황 ]</b>
+    <li>BP_APawnCreep을 AI Move To 노드로 움직여지지 않음</li>
+    <br>
+    <b>[ 해결 방법 ]</b>
     <li>SM_Jar_01 / Details / Navigation / Advanced / Can Ever Affect Navigation 비활성화</li>
     <li>floating Movement Component 추가</li>
     <li>보통 SM 들은 저 옵션이 활성화 되어 있어서 NavMesh가 생성될 때 경로에서 제외되어 폰이 갇힌 상태가 되므로 움직일 수 없음</li>
@@ -40,18 +41,20 @@
     <img src="./images/CreepMoving.gif" width="45%" style="display:inline-block;">
   </p>
   <ul>
-    <li>[문제 상황]
+    <b>[문제 상황]</b>
     <li>CreepGenerator에서 Creep이 스폰되도록 구현</li>
     <li>스폰은 되지만 waypoint를 따라 움직이질 않음</li>
-    <li>[ 이유 ]</li>
+    <br>
+    <b>[문제 원인]</b>
     <li>BP_Creep이 스폰되면 여러 과정을 거쳐야 함</li>
     <li>그 중 NavMesh가 BP_Creep의 경로를 계산하는 과정과 BP_Creep에 AIController가 빙의되는 과정이 포함되어있음</li>
     <li>현재 NavMesh가 계산한 경로로 움직이는 코드가 BP_Creep에 AIController가 빙의되는 순간 작동하도록 구현되어있음</li>
     <li>그런데 NavMesh가 경로를 계산하는 것 보다 빙의되는 게 더 빠름</li>
     <li>그래서 경로가 아직 계산되지 않았는데 그 경로로 움직이는 코드가 작동됨</li>
     <li>이때 NavMesh는 비정상적인 도착 결과를 그냥 반환해버림</li>
-    <li>결과적으로 BP_Creep은 비정상적인 도착 결과를 가짐과 동시에 움직이지 않게 됨 </li>
-    <li>[ 해결 방법 ]</li>
+    <li>결과적으로 BP_Creep은 비정상적인 도착 결과를 가짐과 동시에 움직이지 않게 됨</li>
+    <br>
+    <b>[해결 방법]</b>
     <li>빙의되면 NavMesh가 경로를 계산할 수 있도록 딜레이 코드 작성</li>
     <li>PossessedBy 함수에 WorldTimeManager로 SetTimer 함수 작성</li>
   </ul>
