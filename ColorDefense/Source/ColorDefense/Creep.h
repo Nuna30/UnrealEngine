@@ -24,6 +24,9 @@ private:
 	// AI Controller
 	class AAIController* AIController;
 
+	// AI Controller가 안전하게 할당되고 크립을 이동시키는 함수
+	virtual void PossessedBy(AController* NewController) override;
+
 	// 웨이포인트 저장
 	TArray<class AWayPoint*> Waypoints;
 	
