@@ -1,0 +1,64 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "ToonTanksGameMode.h"
+#include "Kismet/GameplayStatics.h"
+#include "Tank.h"
+#include "Tower.h"
+#include "ToonTanksPlayerController.h"
+
+void AToonTanksGameMode::BeginPlay()
+{
+    Super::BeginPlay();
+    
+    HandleGameStart();
+}
+
+void AToonTanksGameMode::ActorDied(AActor* DeadActor)
+{
+    if (DeadActor == nullptr) return;
+    
+    if (DeadActor == Tank)
+    {
+        Tank->HandleDestruction();
+        if (ToonTanksPlayerController) 
+        {
+            ToonTanksPlayerController->SetPlayerEnabledState(false);
+        }
+        GameOver(false);
+    }
+    else if (ATower* DestroyedTower = Cast<ATower>(DeadActor))
+    {
+        DestroyedTower->HandleDestruction();
+        TargetTowers--;
+        if (GetTargetTowerCount() == 0)
+        {
+            GameOver(true);
+        }
+    }
+}
+
+void AToonTanksGameMode::HandleGameStart()
+{
+    TargetTowers = GetTargetTowerCount();
+
+    Tank = Cast<ATank>(UGameplayStatics::GetPlayerPawn(this, 0));
+    ToonTanksPlayerController = Cast<AToonTanksPlayerController>(UGameplayStatics::GetPlayerController(this, 0));
+
+    StartGame();
+
+    if (ToonTanksPlayerController) ToonTanksPlayerController->SetPlayerEnabledState(false);
+
+    FTimerHandle PlayerEnableTimer;
+    FTimerDelegate PlayerEnableTimerDelegate = FTimerDelegate::CreateUObject(ToonTanksPlayerController, &AToonTanksPlayerController::SetPlayerEnabledState, true);
+
+    GetWorldTimerManager().SetTimer(PlayerEnableTimer, PlayerEnableTimerDelegate, StartDelay, false);
+}
+
+int AToonTanksGameMode::GetTargetTowerCount()
+{
+    TArray<AActor*> Towers;
+
+    UGameplayStatics::GetAllActorsOfClass(GetWorld(), ATower::StaticClass(), Towers);
+    return Towers.Num();
+}
