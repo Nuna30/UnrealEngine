@@ -18,14 +18,14 @@
 </details>
 
 <details>
-  <summary> Ai Move To 노드에 Pawn을 연결하니 움직이지 않음 </summary>
+  <summary> Ai Move To 노드에 Pawn을 연결하니 움직이지 않는 문제 </summary>
   <p>
     <img src="./images/CanEverAffectNavigationOn.png" width="45%" style="display:inline-block; margin-right:5%;">
     <img src="./images/CanEverAffectNavigationOff.png" width="45%" style="display:inline-block;">
   </p>
   <ul>
     <b>[ 문제 상황 ]</b>
-    <li>BP_APawnCreep을 AI Move To 노드로 움직여지지 않음</li>
+    <li>BP_APawnCreep이 AI Move To 노드로 움직여지지 않음</li>
     <br>
     <b>[ 해결 방법 ]</b>
     <li>SM_Jar_01 / Details / Navigation / Advanced / Can Ever Affect Navigation 비활성화</li>
