@@ -21,13 +21,10 @@ protected:
 
 private:
 
-<<<<<<< HEAD
-=======
 	// 캐릭터가 쏘는 총
 	UPROPERTY(VisibleAnywhere)
 	UStaticMeshComponent* GunMesh;
 
->>>>>>> 853db79 ([ git 다시 연결함 ])
 	// 키 바인딩 wasd 마우스
 	void MoveForward(float AxisValue);
 	void LookUp(float AxisValue);
@@ -35,12 +32,9 @@ private:
 	void LookRight(float AxisValue);
 	void Jump();
 
-<<<<<<< HEAD
-=======
 	// 캐릭터가 바라보는 방향으로 총 회전
 	void SyncWithGun();
 
->>>>>>> 853db79 ([ git 다시 연결함 ])
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

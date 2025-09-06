@@ -9,10 +9,7 @@ APlayerCharacter::APlayerCharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-<<<<<<< HEAD
-=======
 	GunMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("GunMesh"));
->>>>>>> 853db79 ([ git 다시 연결함 ])
 }
 
 // Called when the game starts or when spawned
@@ -27,8 +24,6 @@ void APlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-<<<<<<< HEAD
-=======
 	SyncWithGun();
 
 }
@@ -44,7 +39,6 @@ void APlayerCharacter::SyncWithGun()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("NO GunMesh initialized in APlayerCharcter::SyncWithGun()"));
 	}
->>>>>>> 853db79 ([ git 다시 연결함 ])
 }
 
 // Called to bind functionality to input
