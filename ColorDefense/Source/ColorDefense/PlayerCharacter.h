@@ -22,8 +22,7 @@ protected:
 private:
 
 	// 캐릭터가 쏘는 총
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* GunMesh;
+	class UColorGun* ColorGun;
 
 	// 키 바인딩 wasd 마우스
 	void MoveForward(float AxisValue);

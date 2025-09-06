@@ -2,21 +2,21 @@
 
 
 #include "PlayerCharacter.h"
+#include "ColorGun.h"
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
-	GunMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("GunMesh"));
 }
 
 // Called when the game starts or when spawned
 void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	ColorGun = FindComponentByClass<UColorGun>();
 }
 
 // Called every frame
@@ -30,14 +30,15 @@ void APlayerCharacter::Tick(float DeltaTime)
 
 void APlayerCharacter::SyncWithGun()
 {
-	if (GunMesh)
+	if (ColorGun)
     {
-        FRotator CharacterRotation = GetActorRotation(); 
-        GunMesh->SetWorldRotation(CharacterRotation);
+        FRotator CharacterRotation = GetControlRotation();
+		// GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Red, FString::Printf(TEXT("%s %f %f %f"), *GetActorLabel(), CharacterRotation.Roll, CharacterRotation.Pitch, CharacterRotation.Yaw));
+        ColorGun->SetWorldRotation(CharacterRotation);
     }
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("NO GunMesh initialized in APlayerCharcter::SyncWithGun()"));
+		UE_LOG(LogTemp, Warning, TEXT("NO ColorGun initialized in APlayerCharcter::SyncWithGun()"));
 	}
 }
 

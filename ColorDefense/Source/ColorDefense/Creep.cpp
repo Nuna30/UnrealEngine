@@ -51,8 +51,8 @@ void ACreep::PossessedBy(AController* NewController)
 {
     Super::PossessedBy(NewController);
 
-	GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Red, TEXT("AIController possesses BP_Creep"));
-	UE_LOG(LogTemp, Warning, TEXT("AIController possesses BP_Creep"));
+	// GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Red, TEXT("AIController possesses BP_Creep"));
+	// UE_LOG(LogTemp, Warning, TEXT("AIController possesses BP_Creep"));
 
 	// AIController 가져오기
 	AIController = Cast<AAIController>(GetController());
@@ -79,8 +79,8 @@ void ACreep::MoveAlong()
 {
 	GetAllWaypoints();
 
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Waypoints.Num() = %d"), Waypoints.Num()));
-	UE_LOG(LogTemp, Warning, TEXT("Waypoints.Num() = %d"), Waypoints.Num());
+	// GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Waypoints.Num() = %d"), Waypoints.Num()));
+	// UE_LOG(LogTemp, Warning, TEXT("Waypoints.Num() = %d"), Waypoints.Num());
 
     if (Waypoints.Num() > 0)
 	{
@@ -98,8 +98,8 @@ void ACreep::MoveAlong()
 void ACreep::GetAllWaypoints()
 {
 
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("GetAllWaypoints")));
-	UE_LOG(LogTemp, Warning, TEXT("GetAllWaypoints"));
+	// GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("GetAllWaypoints")));
+	// UE_LOG(LogTemp, Warning, TEXT("GetAllWaypoints"));
 
 	TArray<AActor*> FoundActors;
     UGameplayStatics::GetAllActorsOfClass(GetWorld(), AWayPoint::StaticClass(), FoundActors);
