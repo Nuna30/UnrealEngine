@@ -30,9 +30,7 @@ private:
 	void MoveRight(float AxisValue);
 	void LookRight(float AxisValue);
 	void Jump();
-
-	// 캐릭터가 바라보는 방향으로 총 회전
-	void SyncWithGun();
+	void Shoot();
 
 public:	
 	// Called every frame

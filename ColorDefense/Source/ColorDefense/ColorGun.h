@@ -20,9 +20,16 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
+private:
+	// ColorGun 최대 사거리
+	UPROPERTY(EditAnywhere)
+	float MaxRange = 1000;
+	
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
+	
+	// 색깔 총 발사
+	void Shoot();
 		
 };

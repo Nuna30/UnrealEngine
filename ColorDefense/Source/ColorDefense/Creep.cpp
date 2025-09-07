@@ -63,8 +63,11 @@ void ACreep::PossessedBy(AController* NewController)
 		AIController->ReceiveMoveCompleted.AddDynamic(this, &ACreep::OnMoveCompleted);
 
 		// 출발
-        FTimerHandle TimerHandle;
-        GetWorldTimerManager().SetTimer(TimerHandle, this, &ACreep::MoveAlong, 0.1f, false);
+		if (DontMove == false)
+		{
+			FTimerHandle TimerHandle;
+			GetWorldTimerManager().SetTimer(TimerHandle, this, &ACreep::MoveAlong, 0.1f, false);
+		}
     }
 	else // null일 수 있나...?
 	{

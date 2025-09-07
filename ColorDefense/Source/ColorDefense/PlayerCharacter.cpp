@@ -23,23 +23,6 @@ void APlayerCharacter::BeginPlay()
 void APlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	SyncWithGun();
-
-}
-
-void APlayerCharacter::SyncWithGun()
-{
-	if (ColorGun)
-    {
-        FRotator CharacterRotation = GetControlRotation();
-		// GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Red, FString::Printf(TEXT("%s %f %f %f"), *GetActorLabel(), CharacterRotation.Roll, CharacterRotation.Pitch, CharacterRotation.Yaw));
-        ColorGun->SetWorldRotation(CharacterRotation);
-    }
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("NO ColorGun initialized in APlayerCharcter::SyncWithGun()"));
-	}
 }
 
 // Called to bind functionality to input
@@ -53,6 +36,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAxis(TEXT("MoveRight"), this, &APlayerCharacter::MoveRight);
 	PlayerInputComponent->BindAxis(TEXT("LookRight"), this, &APlayerCharacter::LookRight);
 	PlayerInputComponent->BindAction(TEXT("Jump"), EInputEvent::IE_Pressed, this, &APlayerCharacter::Jump);
+	PlayerInputComponent->BindAction(TEXT("Shoot"), EInputEvent::IE_Pressed, this, &APlayerCharacter::Shoot);
 }
 
 void APlayerCharacter::MoveForward(float AxisValue)
@@ -80,4 +64,9 @@ void APlayerCharacter::LookRight(float AxisValue)
 void APlayerCharacter::Jump()
 {
 	ACharacter::Jump();
+}
+
+void APlayerCharacter::Shoot()
+{
+	ColorGun->Shoot();
 }

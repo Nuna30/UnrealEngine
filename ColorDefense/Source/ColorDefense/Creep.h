@@ -54,6 +54,9 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Setting")
 	bool ViewInGame = false;
 
+	UPROPERTY(EditAnywhere, Category = "Setting")
+	bool DontMove = false;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
