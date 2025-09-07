@@ -69,3 +69,11 @@
     <li>https://dev.epicgames.com/documentation/en-us/unreal-engine/basic-navigation-in-unreal-engine</li>
     <li>https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-actor-lifecycle</li>
 </details>
+
+## 1인칭
+<details>
+  <summary>Creep 클릭 시 삭제</summary>
+  <p>
+    <img src="./images/CreepDestroy.gif">
+  </p>
+</details>
